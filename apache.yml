@@ -7,7 +7,7 @@
         state: "present"
     - name: Deploy static website
       copy:
-        src: /var/lib/jenkins/workspace/ansible-petclinic/target/spring-petclinic-2.6.0-SNAPSHOT.jar
+        src: ~/spring-petclinic
         dest: /home/target
     - name : Run jar file
       shell: "java -jar /home/target/*.jar"
