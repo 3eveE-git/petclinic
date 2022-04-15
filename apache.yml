@@ -1,0 +1,14 @@
+- hosts: webservers 
+  become: True
+  tasks:
+    - name: Install packages
+      yum:
+        name: "httpd"
+        state: "present"
+    - name: Deploy static website
+      copy:
+        src: /var/lib/jenkins/workspace/ansible-petclinic/target/spring-petclinic-2.6.0-SNAPSHOT.jar
+        dest: /home/target
+    - name : Run jar file
+      shell: "java -jar /home/target/*.jar"
+...
